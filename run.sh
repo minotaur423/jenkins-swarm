@@ -6,11 +6,6 @@ echo "PROFILES: ${PROFILES}"
 
 export CONTAINER_DIR=/0/java # $HOSTNAME may be a suitable unique identifier for multiple instances (pods) of the same deployment
 
-#if [[ -n "${HTTP_PROXY}" ]]; then
-#  git config --global http.proxy "${HTTP_PROXY}"
-#  git config --global https.proxy "${HTTP_PROXY}"
-#fi
-
 SWARM_ARGS=""
 if [ -n "${JENKINS_USERNAME}" ]; then
     SWARM_ARGS="${SWARM_ARGS} -username ${JENKINS_USERNAME}"
