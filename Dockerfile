@@ -1,4 +1,4 @@
-FROM openjdk:17.0.2-jdk-bullseye
+FROM openjdk:11-jdk-bullseye
 
 USER root
 
