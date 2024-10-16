@@ -2,6 +2,7 @@ pipeline {
   agent { label 'jdk11' }
   options {
     disableConcurrentBuilds()
+    buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '15', numToKeepStr: '10')
   }
   environment {
     project = 'jenkins-swarm'
