@@ -8,10 +8,6 @@ pipeline {
     tag = 'default'
     commitNum = 'default'
   }
-  triggers {
-    pollSCM('H/5 * * * *')
-  }
-
   stages{
     stage('Preparation') {
       steps {
