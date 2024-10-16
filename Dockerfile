@@ -56,8 +56,13 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 RUN apt-get update -qq
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io
+
+# Install Cosign
+RUN cd /var/tmp && wget "https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64" 
+RUN mv /var/tmp/cosign-linux-amd64 /usr/local/bin/cosign
+RUN chmod +x /usr/local/bin/cosign
+
 USER jenkins
 
 # Run Jenkins Swarm Client
 ENTRYPOINT ["/run.sh"]
-

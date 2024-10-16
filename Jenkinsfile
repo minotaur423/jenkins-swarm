@@ -27,13 +27,13 @@ pipeline {
     }
     stage('Build Docker') {
       steps {
+        sh "docker login -u ${ARTIFACTORY_DOCKER_USER} -p ${ARTIFACTORY_DOCKER_PWD} ${ARTIFACTORY_DOCKER_URL}"
         sh "docker build -t ${ARTIFACTORY_DOCKER_URL}/docker-local/${project}:${version} ."
         sh "docker build -t ${ARTIFACTORY_DOCKER_URL}/docker-local/${project}:${latestversion} ."
       }
     }
     stage('Push Docker') {
       steps {
-        sh "docker login -u ${ARTIFACTORY_DOCKER_USER} -p ${ARTIFACTORY_DOCKER_PWD} ${ARTIFACTORY_DOCKER_URL}"
         sh "docker push ${ARTIFACTORY_DOCKER_URL}/docker-local/${project}:${version}"
         sh "docker push ${ARTIFACTORY_DOCKER_URL}/docker-local/${project}:${latestversion}"
       }
