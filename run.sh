@@ -12,7 +12,7 @@ if [ -n "${JENKINS_USERNAME}" ]; then
 fi
 
 if [ -n "${JENKINS_PASSWORD}" ]; then
-    SWARM_ARGS="${SWARM_ARGS} -passwordEnvVariable ${JENKINS_PASSWORD}"
+    SWARM_ARGS="${SWARM_ARGS} -passwordEnvVariable JENKINS_PASSWORD"
 fi
 
 if [ -n "${SWARM_EXECUTORS}" ]; then
