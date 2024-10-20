@@ -68,6 +68,6 @@ spec:
           persistentVolumeClaim:
             claimName: jenkins-pv-claim
         - hostPath:
-            path: /var/run/docker.sock
+            path: /run/docker.sock
             type: Socket
           name: docker-socket
