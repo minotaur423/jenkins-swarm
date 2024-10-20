@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'jdk11' }
+  agent { label 'jdk17' }
   options {
     disableConcurrentBuilds()
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '15', numToKeepStr: '10')
